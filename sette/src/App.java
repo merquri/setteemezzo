@@ -16,7 +16,26 @@ public class App {
         double punteggio;
         boolean risposta=true, uscita=true;
         String seme;
-        int i, carta;
+        int i, carta,puntata,budget;
+        budget=100;
+
+        
+        do {
+            System.out.println("Inserisci la puntata: ");
+            puntata= sc.nextInt();
+        if (puntata>budget || budget==0) {
+            System.out.println("Sei iper povero, ricarica i soldi");
+    
+        } else if (puntata<=0) {
+            System.out.println("Scommessa non valida");
+        }
+        else
+        System.out.println("Hai giocato: " + puntata + " Euro");
+        } while (puntata> budget || budget==0 || puntata<=0);
+
+
+
+
 
         // Dichiaro array e lo popolo
         String[] semi = {"denari", "bastoni", "coppe", "spade"};
@@ -91,16 +110,21 @@ public class App {
             }else{
                 punteggio+=carta;
             }
+            
             System.out.println("Il tuo punteggio è : " + punteggio);
 
             // Controllo il risultato
             if (punteggio > 7.5) {
                 System.out.println("Hai sballato!");
-                risposta = false;
-            } else if (punteggio == 7.5) {
+                budget= budget-puntata;
+                 risposta = false;
+            } else if(punteggio == 7.5) {
                 System.out.println("Hai vinto!");
+                budget= budget+puntata;
+                
                 risposta = false;
             } else {
+                System.out.println("Budget rimanente = " + budget);
                 System.out.println("Vuoi estrarre un'altra carta?");
                 risposta = sc.nextBoolean();
             }
