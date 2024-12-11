@@ -42,6 +42,7 @@ public class App {
 
             // inizializziamo le variabili
             punteggio = 0;
+            punteggioBanco=0;
 
             // Ciclo while che controlla il risultato e se vuole giocare ancora
             while (risposta) {
@@ -195,24 +196,24 @@ public class App {
                     System.out.println("Hai sballato!");
                     budget = budget - puntata;
                     System.out.println("Budget rimanente = " + budget);
-                    risposta = false;
+                    
                 } else if (punteggio == 7.5 || punteggioBanco > 7.5) {
                     System.out.println("L'utente ha vinto!");
                     budget = budget + puntata;
                     System.out.println("Budget rimanente = " + budget);
-                    risposta = false;
+                    
                 } else if (punteggio == punteggioBanco) {
 
                     System.out.println("Il banco ha vinto!");
                     budget = budget - puntata;
                     System.out.println("Budget rimanente = " + budget);
-                    risposta = false;
+                    
                 } else if (punteggioBanco > punteggio && punteggioBanco <= 7.5) {
 
                     System.out.println("Il banco ha vinto!");
                     budget = budget - puntata;
                     System.out.println("Budget rimanente = " + budget);
-                    risposta = false;
+                    
                 } else {
 
                     System.out.println("Budget rimanente = " + budget);
